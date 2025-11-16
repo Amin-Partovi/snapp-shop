@@ -12,9 +12,9 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
   const { name, imageUrl, price, id } = product;
   return (
-    <Link href={routes.product(id)}>
-      <Card className="w-72 h-96">
-        <Image src={imageUrl} alt={name} />
+    <Card className="w-72 h-96">
+      <Link href={routes.product(id)}>
+        <Image src={imageUrl} alt={name} width={288} height={288} />
         <div className="rounded-xl -translate-y-2 bg-white p-3 flex flex-col gap-2">
           <span className="text-lg font-semibold line-clamp-1 text-ellipsis">
             {name}
@@ -28,8 +28,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
             </span>
           </div>
         </div>
-      </Card>
-    </Link>
+      </Link>
+    </Card>
   );
 };
 
