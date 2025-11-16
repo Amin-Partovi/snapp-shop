@@ -1,3 +1,4 @@
+"use client";
 import classNames from "classnames";
 
 interface ButtonProps extends React.ComponentProps<"button"> {
@@ -23,9 +24,10 @@ const Button = ({
   return (
     <button
       {...props}
-      className={classNames("bg-violet-600 text-white",
-        { "h-10 px-4 *:text-xl rounded-lg": size === "md" },
-        { "h-14 px-5 *:text-2xl rounded-xl": size === "lg" },
+      className={classNames(
+        "bg-violet-600 text-white",
+        { "h-8 px-3 *:text-sm rounded-lg": size === "md" },
+        { "h-12 px-5 *:text-lg rounded-xl": size === "lg" },
         { "aspect-square px-0!": iconView },
         { "w-full": fluid, "w-fit": !fluid },
 
