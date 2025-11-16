@@ -1,3 +1,4 @@
+import { Button } from "@/components/elements";
 import { Product } from "@/lib/products/types";
 import { endpoints } from "@/utils";
 import Image from "next/image";
@@ -12,6 +13,7 @@ export default async function Home() {
       {products.map((prod) => (
         <Image src={prod.imageUrl} alt={prod.name} key={prod.id} />
       ))}
+      <Button />
     </div>
   );
 }
