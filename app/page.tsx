@@ -1,9 +1,9 @@
 import { ProductCard } from "@/components/fragments";
-import { Product } from "@/lib/products/types";
+import { ProductT } from "@/lib/products/types";
 import { endpoints } from "@/utils";
 
 export default async function Home() {
-  const products: Product[] = await fetch(endpoints.products, {
+  const products: ProductT[] = await fetch(endpoints.products, {
     next: { revalidate: 10 },
   }).then((res) => res.json());
 

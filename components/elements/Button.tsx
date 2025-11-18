@@ -4,7 +4,7 @@ import classNames from "classnames";
 interface ButtonProps extends React.ComponentProps<"button"> {
   iconLeft?: React.ReactElement | null;
   iconRight?: React.ReactElement | null;
-  size?: "sm" | "md" | "lg";
+  size?: "md" | "lg";
   fluid?: boolean;
   iconView?: boolean;
   className?: string;
@@ -25,7 +25,7 @@ const Button = ({
     <button
       {...props}
       className={classNames(
-        "bg-violet-600 text-white",
+        "bg-violet-600 text-white text-nowrap",
         { "h-8 px-3 *:text-sm rounded-lg": size === "md" },
         { "h-12 px-5 *:text-lg rounded-xl": size === "lg" },
         { "aspect-square px-0!": iconView },
@@ -34,10 +34,14 @@ const Button = ({
         className
       )}
     >
-      <div className={classNames("btn-content ")}>
-        {iconLeft && <div className="text-3xl"> {iconLeft}</div>}
+      <div
+        className={classNames(
+          "btn-content flex justify-center items-center gap-2"
+        )}
+      >
+        {iconRight && <div> {iconRight}</div>}
         {children && <span className=" font-medium">{children}</span>}
-        {iconRight && <div className="text-3xl"> {iconRight}</div>}
+        {iconLeft && <div> {iconLeft}</div>}
       </div>
     </button>
   );

@@ -1,3 +1,4 @@
 export const routes = {
-    product: (id: string) => `/products/${id}`
+    product: (id: string) => `/products/${id}`,
+    home: "/"
 }

@@ -1,4 +1,4 @@
-import { Product } from "@/lib/products/types";
+import { ProductT } from "@/lib/products/types";
 import { messages } from "@/messages/messages";
 import { formatWithCommas, routes } from "@/utils";
 import Image from "next/image";
@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Card } from "../elements";
 
 interface ProductCardProps {
-  product: Product;
+  product: ProductT;
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {

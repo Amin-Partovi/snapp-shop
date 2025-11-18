@@ -8,9 +8,9 @@ import ps5Img from "../images/ps5.webp"
 import speakerImg from "../images/speaker.webp"
 import tvImg from "../images/tv.webp"
 import watchImg from "../images/watch.webp"
-import { Product } from "./types"
+import { ProductT } from "./types"
 
-export const products: Product[] = [
+export const products: ProductT[] = [
     {
         id: "p1",
         name: "لپ تاپ X",
