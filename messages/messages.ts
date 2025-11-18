@@ -1,6 +1,6 @@
 export const messages = {
     rial: "ریال",
-    add_to_card: "افزودن به سبد خرید",
+    add_to_cart: "افزودن به سبد خرید",
     cart: "سبد خرید",
     your_shop: "فروشگاه شما",
     product_not_found: "محصول یافت نشد",

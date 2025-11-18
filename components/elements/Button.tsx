@@ -25,7 +25,7 @@ const Button = ({
     <button
       {...props}
       className={classNames(
-        "bg-violet-600 text-white text-nowrap",
+        "bg-violet-600 text-white text-nowrap cursor-pointer",
         { "h-8 px-3 *:text-sm rounded-lg": size === "md" },
         { "h-12 px-5 *:text-lg rounded-xl": size === "lg" },
         { "aspect-square px-0!": iconView },

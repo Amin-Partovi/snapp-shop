@@ -2,19 +2,15 @@ import { ProductT } from "@/lib/products/types";
 import { messages } from "@/messages/messages";
 import { formatWithCommas } from "@/utils";
 import Image from "next/image";
-import { Button } from "@/components/elements";
-import { ShoppingCartIcon } from "lucide-react";
+import AddToCart from "./AddToCart";
+import IncrementAndDecrementProduct from "./IncrementAndDecrementProduct";
 
 interface ProductDetailsProps {
   product: ProductT;
 }
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
-  const { description, id, imageUrl, name, price } = product;
-
-  // const handleAddToCart = () => {
-  //   console.log("Adding to cart:", id);
-  // };
+  const { description, imageUrl, name, price } = product;
 
   return (
     <div className="grid py-20 gap-10 grid-cols-1 lg:grid-cols-3 xl:grid-cols-5">
@@ -43,16 +39,11 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             {messages.rial}
           </span>
         </div>
+        <div className="flex flex-col items-center gap-4">
+          <IncrementAndDecrementProduct id={product.id} />
 
-        <Button
-          size="lg"
-          iconLeft={<ShoppingCartIcon size={20} />}
-          fluid
-          // onClick={handleAddToCart}
-          className="whitespace-nowrap"
-        >
-          {messages.add_to_card}
-        </Button>
+          <AddToCart product={product} />
+        </div>
       </div>
     </div>
   );
