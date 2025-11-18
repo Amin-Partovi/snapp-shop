@@ -1,0 +1,61 @@
+import { ProductT } from "@/lib/products/types";
+import { messages } from "@/messages/messages";
+import { formatWithCommas } from "@/utils";
+import Image from "next/image";
+import { Button } from "@/components/elements";
+import { ShoppingCartIcon } from "lucide-react";
+
+interface ProductDetailsProps {
+  product: ProductT;
+}
+
+const ProductDetails = ({ product }: ProductDetailsProps) => {
+  const { description, id, imageUrl, name, price } = product;
+
+  // const handleAddToCart = () => {
+  //   console.log("Adding to cart:", id);
+  // };
+
+  return (
+    <div className="grid py-20 gap-10 grid-cols-1 lg:grid-cols-3 xl:grid-cols-5">
+      <div className="lg:col-span-1 xl:col-span-2">
+        <Image
+          priority
+          src={imageUrl}
+          alt={name}
+          width={600}
+          height={600}
+          className="border border-gray-100 rounded-2xl w-full h-auto object-cover"
+        />
+      </div>
+
+      <div className="border border-gray-100 rounded-2xl p-6 h-full lg:col-span-1 xl:col-span-2 space-y-10">
+        <h1 className="text-3xl lg:text-5xl font-bold">{name}</h1>
+        <p className="font-semibold text-gray-500 text-justify">
+          {description}
+        </p>
+      </div>
+
+      <div className="flex flex-col justify-between lg:col-span-1 border border-gray-100 rounded-2xl p-6 gap-8">
+        <div className="bg-violet-200 p-4 rounded-2xl text-center">
+          <span className="text-xl font-bold">{formatWithCommas(price)}</span>
+          <span className="text-xl text-gray-400 font-medium mr-2">
+            {messages.rial}
+          </span>
+        </div>
+
+        <Button
+          size="lg"
+          iconLeft={<ShoppingCartIcon size={20} />}
+          fluid
+          // onClick={handleAddToCart}
+          className="whitespace-nowrap"
+        >
+          {messages.add_to_card}
+        </Button>
+      </div>
+    </div>
+  );
+};
+
+export default ProductDetails;

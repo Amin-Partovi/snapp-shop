@@ -9,7 +9,7 @@ const Header = () => {
     <header className=" border-b-2 border-gray-100 ">
       <Container>
         <div className="flex justify-between items-center h-20 ">
-          <Link className="text-violet-600 font-bold text-3xl" href={routes.home}>
+          <Link className="text-violet-600 font-bold text-xl lg:text-3xl" href={routes.home}>
             {messages.your_shop}
           </Link>
 
