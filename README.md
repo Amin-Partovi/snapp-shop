@@ -30,39 +30,39 @@ the structure of the project is inspired by Atomic Design.
 .
 ├── app
 ├── components/
-│ ├── elements/
-│ │ ├── Button.tsx
-│ │ ├── ...
-│ │ └── index.ts
-│ ├── fragments/
-│ │ ├── Modal.tsx
-│ │ ├── ...
-│ │ └── index.ts
-│ ├── layouts/
-│ │ ├── Header.tsx
-│ │ ├── ...
-│ │ └── index.ts
-│ └── pages/
-│ ├── products/
-│ │ ├── ProductList.tsx
-│ │ └── ...
-│ ├── ...
-│ └── index.ts
+│   ├── elements/
+│   │   ├── Button.tsx
+│   │   ├── ...
+│   │   └── index.ts
+│   ├── fragments/
+│   │   ├── Modal.tsx
+│   │   ├── ...
+│   │   └── index.ts
+│   ├── layouts/
+│   │   ├── Header.tsx
+│   │   ├── ...
+│   │   └── index.ts
+│   └── pages/
+│       ├── products/
+│       │   ├── ProductList.tsx
+│       │   └── ...
+│       ├── ...
+│       └── index.ts
 ├── hooks/
-│ ├── useCartInfo.ts
-│ ├── ...
-│ └── index.ts
+│   ├── useCartInfo.ts
+│   ├── ...
+│   └── index.ts
 ├── lib
 ├── messages
 ├── public
 ├── store/
-│ ├── shoppingCartStore.ts
-│ ├── ...
-│ └── index.ts
+│   ├── shoppingCartStore.ts
+│   ├── ...
+│   └── index.ts
 └── utils/
-├── endpoints.ts
-├── ...
-└── index.ts
+    ├── endpoints.ts
+    ├── ...
+    └── index.ts
 ```
 
 components folder divided to four modules as following:
