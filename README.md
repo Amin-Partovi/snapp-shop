@@ -1,6 +1,9 @@
-# How to run project
+# Online Shop
+
+## How to run project
 
 ### Package Manager
+
 In the project directory, you can use npm as the package manager. First, run:
 
     npm i
@@ -20,7 +23,7 @@ To serve the production build, you can use the following command:
 
 Again, the project will be accessible at [http://localhost:3000](http://localhost:3000/).
 
-# Folder structure
+## Folder structure
 
 the structure of the project is inspired by Atomic Design.
 
@@ -70,9 +73,7 @@ components folder divided to four modules as following:
 
 Within this structure, each module has its own index file that serves as a central point of export for all the components within that module.
 
-# Products API
-
-## Endpoints
+## Products API
 
 ### Get All Products
 
@@ -98,33 +99,36 @@ Returns a single product by ID.
 }
 ```
 
-## Data Source
+### Data Source
 
 - **Location:** `@/lib/products/data`
 - **Type:** Static local data (pre-defined product array)
 
-## Features
+### Features
 
 - Static data implementation
 - 404 error handling for missing products
 - JSON responses
 - TypeScript support
 
-
-# Pages Overview
+## Pages Overview
 
 ### 🏠 Product List Page - PLP (`/`)
+
 **Data Fetching Strategy:** **Static Generation with Incremental Static Regeneration (ISR)**
+
 - **Strategy:** `fetch` with `revalidate: 10`
 - **Reason:** Product list changes infrequently but needs occasional updates. ISR provides best performance while keeping data fresh.
 
 **SEO Features:**
+
 - Dynamic metadata generation
 - OpenGraph tags for social sharing
 - Robots.txt directives for indexing
 - Persian locale optimization (`fa_IR`)
 
 **Error Handling:**
+
 - 404 handling for missing data
 - Graceful error messages
 - Fallback to static data
@@ -132,11 +136,14 @@ Returns a single product by ID.
 ---
 
 ### 📦 Product Details Page - PDP (`/products/[id]`)
+
 **Data Fetching Strategy:** **Static Generation with ISR**
+
 - **Strategy:** `fetch` with `revalidate: 3600` (1 hour)
 - **Reason:** Product details are stable but need periodic updates. Long cache duration for better performance.
 
 **SEO Features:**
+
 - Dynamic title and description
 - OpenGraph images and metadata
 - Twitter Card support
@@ -144,19 +151,22 @@ Returns a single product by ID.
 - Structured product data
 
 **Error Handling:**
+
 - 404 for non-existent products
 - Metadata fallback on errors
 
 ---
 
-## Key Features
+### Key Features
 
 ### 🚀 Performance
+
 - **ISR:** Best of both worlds (static speed + dynamic updates)
 - **Development Optimization:** Falls back to local data
 - **Efficient Caching:** Strategic revalidation times
 
 ### 🔍 SEO Optimization
+
 - Dynamic meta tags per page
 - Social media rich snippets
 - Multi-language support (Persian)
@@ -164,52 +174,54 @@ Returns a single product by ID.
 - Robot indexing control
 
 ### ⚡ Error Resilience
+
 - Graceful 404 handling
 - Metadata fallbacks
 - Development/production environment awareness
 
-# Revalidation Strategy Explanation
+## Revalidation Strategy Explanation
 
-## Current Revalidation Times
+### Current Revalidation Times
+
 - **Product List Page:** `10 seconds`
 - **Product Details Page:** `3600 seconds` (1 hour)
 
-## Why Different Revalidation Times?
+### Why Different Revalidation Times?
 
 ### 🛒 Product List Page (10 seconds)
+
 - Product availability changes frequently
 - New products may be added
 - Prices can be updated
 - Promotions and stock levels change often
 
-
 ### 📋 Product Details Page (1 hour)
+
 - Product descriptions rarely change
 - Images and specifications are stable
 - Technical details remain constant
 
+### Business Logic Behind the Strategy
 
-## Business Logic Behind the Strategy
+| Page Type           | Change Frequency | Cache Duration | Reason                                   |
+| ------------------- | ---------------- | -------------- | ---------------------------------------- |
+| **Product List**    | High             | Short (10s)    | Real-time inventory, pricing, promotions |
+| **Product Details** | Low              | Long (1h)      | Stable product info, better performance  |
 
-| Page Type | Change Frequency | Cache Duration | Reason |
-|-----------|------------------|----------------|---------|
-| **Product List** | High | Short (10s) | Real-time inventory, pricing, promotions |
-| **Product Details** | Low | Long (1h) | Stable product info, better performance |
-
-## Shopping Cart Implementation
+### Shopping Cart Implementation
 
 The shopping cart functionality is implemented using **Zustand** for client-side state management with **localStorage persistence**, ensuring cart data persists across browser sessions.
 
 ### Architecture Overview
 
 **State Management:** Zustand store manages cart operations with automatic localStorage synchronization:
+
 - Cart data persists between page refreshes and browser sessions
 - Adding products to cart
-- Incrementing/decrementing item quantities  
+- Incrementing/decrementing item quantities
 - Removing individual items
 - Clearing entire cart
 - Calculating total price and item count
-
 
 # Project Limitations
 
