@@ -26,7 +26,7 @@ Again, the project will be accessible at [http://localhost:3000](http://localhos
 ## Folder structure
 
 the structure of the project is inspired by Atomic Design.
-
+```
 .
 ├── app
 ├── components/
@@ -63,6 +63,7 @@ the structure of the project is inspired by Atomic Design.
 ├── endpoints.ts
 ├── ...
 └── index.ts
+```
 
 components folder divided to four modules as following:
 
