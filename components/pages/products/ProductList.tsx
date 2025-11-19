@@ -15,8 +15,8 @@ const ProductList = async ({ products }: ProductListProps) => {
   }
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 py-20 justify-items-center">
-      {products.map((prod) => (
-        <ProductCard product={prod} key={prod.id} />
+      {products.map((prod, index) => (
+        <ProductCard product={prod} key={prod.id} priority={index < 5} />
       ))}
     </div>
   );

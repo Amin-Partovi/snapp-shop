@@ -30,6 +30,8 @@ const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
       <div
         className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center animate-fadeIn backdrop-blur-xs"
         onClick={onClose}
+        role="dialog"
+        aria-modal="true"
       >
         <div
           className="bg-white rounded-xl shadow-xl p-6 w-full max-w-2xl animate-scaleIn flex flex-col gap-4 mx-2 md:mx-0"

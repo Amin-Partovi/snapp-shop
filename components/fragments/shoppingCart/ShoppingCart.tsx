@@ -26,6 +26,7 @@ const ShoppingCart = () => {
         iconLeft={<ShoppingCartIcon width={20} height={20} />}
         size="lg"
         onClick={handleOpen}
+        aria-label="show shopping cart"
       >
         {messages.cart}
       </Button>

@@ -19,13 +19,21 @@ const IncrementAndDecrementProduct = ({
   }
   return (
     <div className="flex items-center gap-4">
-      <Button iconView onClick={() => increment(id)}>
+      <Button
+        iconView
+        onClick={() => increment(id)}
+        aria-label={`Increase quantity for product ${id}`}
+      >
         +
       </Button>
 
       {count}
 
-      <Button iconView onClick={() => decrement(id)}>
+      <Button
+        iconView
+        onClick={() => decrement(id)}
+        aria-label={`Decrease quantity for product ${id}`}
+      >
         -
       </Button>
     </div>
