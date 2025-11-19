@@ -1,12 +1,14 @@
 import { ProductT } from "@/lib/products/types";
 import { messages } from "@/messages/messages";
-import { formatWithCommas } from "@/utils";
+import { formatWithCommas, routes } from "@/utils";
 import Image from "next/image";
 
 import {
   AddToCart,
   IncrementAndDecrementProduct,
 } from "@/components/fragments";
+import { ChevronRightCircle } from "lucide-react";
+import Link from "next/link";
 
 interface ProductDetailsProps {
   product: ProductT;
@@ -16,7 +18,10 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
   const { description, imageUrl, name, price } = product;
 
   return (
-    <div className="grid py-20 gap-10 grid-cols-1 lg:grid-cols-3 xl:grid-cols-5">
+    <div className="grid py-20 gap-8 grid-cols-1 lg:grid-cols-3 xl:grid-cols-5">
+      <Link className="col-span-5" href={routes.home}>
+        <ChevronRightCircle width={40} height={40} color="gray" />
+      </Link>
       <div className="lg:col-span-1 xl:col-span-2">
         <Image
           priority
