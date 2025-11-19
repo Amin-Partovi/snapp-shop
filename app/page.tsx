@@ -1,4 +1,5 @@
 import { ProductList } from "@/components/pages";
+import { products } from "@/lib/products/data";
 import { ProductT } from "@/lib/products/types";
 import { messages } from "@/messages/messages";
 import { endpoints } from "@/utils";
@@ -24,6 +25,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 async function fetchProducts(): Promise<ProductT[]> {
+  if (process.env.NODE_ENV !== "development") {
+    return products;
+  }
+
   const res: Response = await fetch(endpoints.products, {
     next: { revalidate: 10 },
   });

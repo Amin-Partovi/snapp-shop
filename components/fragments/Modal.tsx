@@ -45,7 +45,8 @@ const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
               className="cursor-pointer"
             />
           </div>
-          {children}
+
+          <div className="max-h-[600px] overflow-auto py-1">{children}</div>
         </div>
       </div>
     </Portal>
