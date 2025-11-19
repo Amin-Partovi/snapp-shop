@@ -224,6 +224,37 @@ The shopping cart functionality is implemented using **Zustand** for client-side
 - Clearing entire cart
 - Calculating total price and item count
 
-# Project Limitations
+## Project Features & Optimizations
+
+### 🚀 Performance
+- **Incremental Static Regeneration (ISR)** - Product list (10s) & details (1h) revalidation
+- **Dynamic Imports** - Shopping cart modal loaded on-demand
+- **Image Optimization** - Next.js Image component with priority loading for above-fold content
+- **Memoization** - Shopping cart items memoized to prevent unnecessary re-renders
+- **Zustand State Management** - Efficient client-side state with localStorage persistence
+
+### 🔍 SEO
+- **Dynamic Metadata** - Page-specific titles and descriptions
+- **OpenGraph Tags** - Social media sharing optimization
+- **Twitter Cards** - Enhanced Twitter sharing
+- **Canonical URLs** - Prevent duplicate content
+- **Structured Data** - Product information for search engines
+- **Robots.txt** - Search engine indexing control
+
+### ♿ Accessibility
+- **ARIA Labels** - Screen reader support for interactive elements
+- **Semantic HTML** - Correct heading structure and element usage
+- **Color Contrast** - Accessible color schemes
+- **Icon Buttons** - Proper role and label attributes
+
+### 🛠️ Code Quality
+- **TypeScript** - Full type safety across components
+- **Project Structure** - Scalable component architecture
+- **Custom Hooks** - Reusable logic (useCartInfo, useProductCartCount)
+- **Error Boundaries** - Graceful error handling
+- **Responsive Design** - Mobile-first grid layouts
+
+
+## Project Limitations
 
 Due to time constraints during development, this project currently does not include unit or integration tests, which means components and API routes lack automated verification. Additionally, the application is not Dockerized, so containerization and streamlined deployment configurations are not yet implemented.
