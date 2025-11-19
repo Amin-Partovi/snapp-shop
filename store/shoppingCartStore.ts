@@ -2,7 +2,7 @@ import { ProductT } from "@/lib/products/types"
 import { create } from "zustand"
 import { persist } from "zustand/middleware";
 
-interface CartProduct extends ProductT {
+export interface CartProduct extends ProductT {
     count: number
 }
 

@@ -2,8 +2,11 @@ import { ProductT } from "@/lib/products/types";
 import { messages } from "@/messages/messages";
 import { formatWithCommas } from "@/utils";
 import Image from "next/image";
-import AddToCart from "./AddToCart";
-import IncrementAndDecrementProduct from "./IncrementAndDecrementProduct";
+
+import {
+  AddToCart,
+  IncrementAndDecrementProduct,
+} from "@/components/fragments";
 
 interface ProductDetailsProps {
   product: ProductT;

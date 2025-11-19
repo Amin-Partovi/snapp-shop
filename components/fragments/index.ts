@@ -1,1 +1,5 @@
 export { default as ProductCard } from "./ProductCard"
+export { default as Modal } from "./Modal"
+export { default as ShoppingCart } from "./shoppingCart/ShoppingCart"
+export { default as IncrementAndDecrementProduct } from "./shoppingCart/IncrementAndDecrementProduct"
+export { default as AddToCart } from "./shoppingCart/AddToCart"
