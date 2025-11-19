@@ -4,6 +4,7 @@ import { CartProduct } from "@/store";
 import { formatWithCommas } from "@/utils";
 import { Trash2Icon } from "lucide-react";
 import Image from "next/image";
+import { memo } from "react";
 
 interface ShoppingCartItemProps {
   product: CartProduct;
@@ -49,4 +50,4 @@ const ShoppingCartItem = ({ product, onRemove }: ShoppingCartItemProps) => {
   );
 };
 
-export default ShoppingCartItem;
+export default memo(ShoppingCartItem);

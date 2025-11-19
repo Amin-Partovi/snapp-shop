@@ -1,13 +1,8 @@
 "use client";
 
+import { CircleXIcon } from "lucide-react";
 import { useEffect } from "react";
 import { Portal } from "../elements";
-import {
-  CircleXIcon,
-  ClosedCaptionIcon,
-  CrossIcon,
-  FolderClosedIcon,
-} from "lucide-react";
 
 interface ModalProps {
   isOpen: boolean;

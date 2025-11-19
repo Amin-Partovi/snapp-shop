@@ -19,7 +19,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   return (
     <div className="grid py-20 gap-8 grid-cols-1 lg:grid-cols-3 xl:grid-cols-5">
-      <Link className="col-span-5" href={routes.home}>
+      <Link className="col-span-5" href={routes.home} title="back to home">
         <ChevronRightCircle width={40} height={40} color="gray" />
       </Link>
       <div className="lg:col-span-1 xl:col-span-2">
@@ -33,20 +33,20 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
         />
       </div>
 
-      <div className="border border-gray-100 rounded-2xl p-6 h-full lg:col-span-1 xl:col-span-2 space-y-10">
+      <section className="border border-gray-100 rounded-2xl p-6 h-full lg:col-span-1 xl:col-span-2 space-y-10">
         <h1 className="text-3xl lg:text-5xl font-bold">{name}</h1>
         <p className="font-semibold text-gray-500 text-justify">
           {description}
         </p>
-      </div>
+      </section>
 
       <div className="flex flex-col justify-between lg:col-span-1 border border-gray-100 rounded-2xl p-6 gap-8">
-        <div className="bg-violet-200 p-4 rounded-2xl text-center">
+        <section className="bg-violet-200 p-4 rounded-2xl text-center">
           <span className="text-xl font-bold">{formatWithCommas(price)}</span>
           <span className="text-xl text-gray-400 font-medium mr-2">
             {messages.rial}
           </span>
-        </div>
+        </section>
         <div className="flex flex-col items-center gap-4">
           <IncrementAndDecrementProduct id={product.id} />
 

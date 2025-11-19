@@ -6,6 +6,7 @@ import Modal from "../Modal";
 import ShoppingCartItem from "./ShoppingCartItem";
 import { formatWithCommas } from "@/utils";
 import { useCartInfo } from "@/hooks";
+import { useCallback, useMemo } from "react";
 
 interface ShoppingCartListProps {
   onClose: () => void;
@@ -16,7 +17,14 @@ const ShoppingCartList = ({ onClose, isOpen }: ShoppingCartListProps) => {
   const { cartList, removeFromCart, clearCart } = useShoppingCartStore();
   const { totalPrice } = useCartInfo();
 
-  const content = () => {
+  const handleRemove = useCallback(
+    (id: string) => {
+      removeFromCart(id);
+    },
+    [removeFromCart]
+  );
+
+  const content = useMemo(() => {
     if (!cartList || cartList.length === 0) {
       return (
         <div className="h-20 flex justify-center items-center">
@@ -36,12 +44,12 @@ const ShoppingCartList = ({ onClose, isOpen }: ShoppingCartListProps) => {
         {cartList.map((product) => (
           <ShoppingCartItem
             product={product}
-            onRemove={removeFromCart}
+            onRemove={handleRemove}
             key={product.id}
           />
         ))}
 
-        <div className="self-end flex gap-2">
+        <section className="self-end flex gap-2">
           <span className="text-gray-500">{messages.sum}:</span>
           <span className="text-sm md:text-base font-bold">
             {formatWithCommas(totalPrice)}
@@ -49,14 +57,14 @@ const ShoppingCartList = ({ onClose, isOpen }: ShoppingCartListProps) => {
           <span className="text-sm text-gray-400 font-medium">
             {messages.rial}
           </span>
-        </div>
+        </section>
       </div>
     );
-  };
+  }, [totalPrice, handleRemove, clearCart, cartList]);
 
   return (
     <Modal onClose={onClose} isOpen={isOpen} title={messages.cart}>
-      {content()}
+      {content}
     </Modal>
   );
 };

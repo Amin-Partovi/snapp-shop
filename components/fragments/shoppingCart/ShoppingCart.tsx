@@ -5,7 +5,8 @@ import { messages } from "@/messages/messages";
 import { ShoppingCartIcon } from "lucide-react";
 import { Button } from "../../elements";
 import { useState } from "react";
-import ShoppingCartList from "./ShoppingCartList";
+import dynamic from "next/dynamic";
+const ShoppingCartList = dynamic(() => import("./ShoppingCartList"));
 
 const ShoppingCart = () => {
   const { cartCount } = useCartInfo();
